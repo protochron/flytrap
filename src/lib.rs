@@ -145,7 +145,9 @@ mod resolver;
 #[cfg_attr(docsrs, doc(cfg(feature = "dns")))]
 pub use app::AppResolver;
 pub use error::Error;
-pub use placement::{hosted, private_address, Machine, Placement};
+#[cfg(feature = "environment")]
+pub use placement::hosted;
+pub use placement::{private_address, Machine, Placement};
 #[cfg(feature = "regions")]
 #[cfg_attr(docsrs, doc(cfg(feature = "regions")))]
 pub use region::{City, Location, Region, RegionCode, RegionDetails, RegionError};
